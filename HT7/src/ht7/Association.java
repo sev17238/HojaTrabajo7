@@ -10,8 +10,10 @@ import java.util.Map;
 /**
  *
  * @author SDiego
+ * @param <K>
+ * @param <V>
  */
-public class Association<K,V> implements Map.Entry<K,V>
+public class Association<K extends Comparable<K>,V extends Comparable<V>> implements Map.Entry<K,V>
 {
     /**
      * The immutable key.  An arbitrary object.

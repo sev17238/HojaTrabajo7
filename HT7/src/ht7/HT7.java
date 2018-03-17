@@ -18,28 +18,23 @@ public class HT7 {
      */
     public static void main(String[] args) throws IOException{
         int decision = 0; 
-        String file = "";
-        BinaryTree<String> tree = new BinaryTree(); // Objeto de tipo BinaryTree de nuestra implementacion.
-        //Association<String,String> as = new Association("","") ;
+        BinaryTree<String> tree;
         Scanner teclado = new Scanner(System.in);
-        //ciclo principal donde se ejecutan las instrucciones del programa
-        while(decision != 2){
+        
+        
+            System.out.println("Ingrese el nombre del archivo.txt que quiere leer para su diccionario: ");
+            String file = teclado.nextLine();
+            
             BufferedReader br = new BufferedReader(new FileReader(file));     
 
             try {                
                 StringBuilder sb = new StringBuilder();
-                String line = "";
-                
-                
-                System.out.println("¿Que Implementacion de la interface Map desea usar? (Escriba solo el numero) \n\t1. HashMap \n\t2. TreeMap \n\t3. LinkedHashMap");
-                String entry = teclado.nextLine();
-                
-                Map<String, String> imp = null;
+                String line = "";              
+                                                
                 String ingles = "";
                 String espanol = "";
                 
-                //AHORA LOS KEYS SERAN EL NOMBRE DE LA CARTA 
-                //EL VALUE CONTENDRA A LA CARTA EN SI
+                //Ciclo principal en donde se lee cada linea del .txt donde estan las asociaciones de ingles y espanol
                 while ((line=br.readLine())!=null) {
                     sb.append(line);
                     sb.append(System.lineSeparator()); 
@@ -52,48 +47,26 @@ public class HT7 {
                             ingles = line.substring(0, i-1).toUpperCase(); //se obtiene la subcadena antes de "|"       
                         }
                     }
+                    //tree.newNodo(ingles,espanol);
+                    System.out.println(ingles +", "+ espanol); //prueba para ver que los datos se esten leyendo bien
                     
-                    cards.getCartasDisp().put(key, card); //para poner en una coleccion todas las cartas disponibles
                 }
-                               
-
-                    switch(decision2)
-                    {
-                        case 1:
-                          
-                            break;
-                        case 2:
-                            try
-                            {
-                               
-                            }
-                            catch (NullPointerException e)
-                            {
-                                
-                            }
-                            break;
-                        case 3:
-                         
-                            break;
-                        case 4:
-                            
-                            break;
-                        case 5: // se muestran las cartas disponibles
-                            
-                            break;
-                        case 6:                           
-                            
-                            break;
-                        case 7:
-                            
-                            break;
-                    }
+                
+                while(decision != 2){                               
+                System.out.println("Ingrese la oracion en ingles que quiere traducir: ");
+                String oracion = teclado.nextLine();
+                
+                //tree.traduccion(oracion);
+                    
+                System.out.println("QUe desea hacer? \n1. Traducir otra oracion \n2. Salir ");
+                decision = teclado.nextInt();
+                }
                 
             }
             finally{
                 br.close();
             }  
-        }
+        
         
     }
     

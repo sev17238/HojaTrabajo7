@@ -6,13 +6,14 @@ package ht7;
 
 /**
  *
- * @author SDiego
+ * @author David Soto 17551
+ * @author Diego Sevilla 17238
  */
 public class BinaryTree2<E extends Comparable<E>> {
     private BinaryNode<E> raiz;
     
     // Tipos de recorrido
-    public enum recorrido {PREORDEN, ENORDEN, POSTORDEN}
+    public enum recorrido {PREORDER, INORDER, POSTORDER}
     
     /**
      * Constructor por default con nodo raíz
@@ -47,35 +48,33 @@ public class BinaryTree2<E extends Comparable<E>> {
         }
         else {
             /* 4.- En caso negativo preguntamos: X < Nodo */
-            if ( nodo.getValor() <= raiz.getValor() ) {
+            if ( nodo.getAsociacion().getKey().compareTo(raiz.getAsociacion().getKey()) == -1 ) {
                 /* 
                  * 5.- En caso de ser menor pasamos al Nodo de la IZQUIERDA del
                  * que acabamos de preguntar y repetimos desde el paso 2 
                  * partiendo del Nodo al que acabamos de visitar 
                  */
-                if (raiz.getHojaIzquierda() == null) {
-                    raiz.setHojaIzquierda(nodo);
+                if (raiz.getLeft() == null) {
+                    raiz.setLeft(nodo);
                 }
                 else {
-                    addNodo( nodo , raiz.getHojaIzquierda() );
+                    addNodo( nodo , raiz.getLeft() );
                 }
-            }
-            else {
+            }else  {
                 /* 
                  * 6.- En caso de ser mayor pasamos al Nodo de la DERECHA y tal
                  * cual hicimos con el caso anterior repetimos desde el paso 2
                  * partiendo de este nuevo Nodo.
                  */
-                if (raiz.getHojaDerecha() == null) {
-                    raiz.setHojaDerecha(nodo);
+                if (raiz.getRight() == null) {
+                    raiz.setRight(nodo);
                 }
                 else {
-                    addNodo( nodo, raiz.getHojaDerecha() );
+                    addNodo( nodo, raiz.getRight() );
                 }
             }
         }
-    }
- 
+    } 
     public void addNodo( BinaryNode nodo ) {
         this.addNodo( nodo , this.raiz );
     }
@@ -86,19 +85,34 @@ public class BinaryTree2<E extends Comparable<E>> {
      */
     public void recorrer(recorrido tipo) {
         switch(tipo) {
-            case PREORDEN:
+            case PREORDER:
                 System.out.println("Recorrido pre orden");
-                raiz.preOrden();
+                raiz.preOrder();
                 break;
-            case ENORDEN:
+            case INORDER:
                 System.out.println("Recorrido en orden");
-                raiz.enOrden();
+                raiz.inOrder();
                 break;
-            case POSTORDEN:
+            case POSTORDER:
                 System.out.println("Recorrido post orden");
-                raiz.postOrden();
+                raiz.postOrder();
                 break;
         }
         System.out.println();
+    }
+    
+    public String buscarPalabra(String palabra){
+        String palabraTraducida = "";
+        
+        
+        return palabraTraducida;
+    }
+    
+    public String traduccionOracion(String oracion){
+        String oracionTraducida = "";
+        
+        
+        
+        return oracionTraducida;
     }
 }

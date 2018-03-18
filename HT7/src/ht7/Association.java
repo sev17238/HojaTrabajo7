@@ -9,7 +9,8 @@ import java.util.Map;
 
 /**
  *
- * @author SDiego
+ * @author David Soto 17555
+ * @author Diego Sevilla 17238
  * @param <K>
  * @param <V>
  */

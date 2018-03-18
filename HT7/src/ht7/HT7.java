@@ -8,8 +8,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- *
- * @author Diego Sevilla 17238 - David Soto 17551
+ * 
+ * @author David Soto 17551
+ * @author Diego Sevilla 17238
  */
 public class HT7 {
 
@@ -18,7 +19,10 @@ public class HT7 {
      */
     public static void main(String[] args) throws IOException{
         int decision = 0; 
-        BinaryTree<String> tree;
+        
+        BinaryNode<String> nod = null;
+        BinaryTree2<String> tree = new BinaryTree2<String>(nod);
+        
         Scanner teclado = new Scanner(System.in);
         
         
@@ -47,16 +51,22 @@ public class HT7 {
                             ingles = line.substring(0, i-1).toUpperCase(); //se obtiene la subcadena antes de "|"       
                         }
                     }
-                    //tree.newNodo(ingles,espanol);
-                    System.out.println(ingles +", "+ espanol); //prueba para ver que los datos se esten leyendo bien
                     
+                    BinaryNode<String> node = new BinaryNode<String>(ingles,espanol); //se crea un nuevo nodo con cada linea
+                    tree.addNodo(node); //el nodo se agrega al arbol
+                    
+                    System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
                 }
                 
                 while(decision != 2){                               
                 System.out.println("Ingrese la oracion en ingles que quiere traducir: ");
                 String oracion = teclado.nextLine();
                 
-                //tree.traduccion(oracion);
+                System.out.println("\n");
+                tree.recorrer(BinaryTree2.recorrido.INORDER); //PRUEBA de recorridos
+                
+                //tree.traduccion(oracion); //En este metodo se debe de hacer el reemplazo 
+                                            //de las palabras en ingles por las de espanol.
                     
                 System.out.println("QUe desea hacer? \n1. Traducir otra oracion \n2. Salir ");
                 decision = teclado.nextInt();

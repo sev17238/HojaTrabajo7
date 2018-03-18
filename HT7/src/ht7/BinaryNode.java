@@ -4,8 +4,9 @@
 package ht7;
 
 /**
- *
- * @author SDiego
+ * 
+ * @author David Soto 17555
+ * @author Diego Sevilla 17238
  */
 public class BinaryNode<E>{
     
@@ -88,52 +89,68 @@ public class BinaryNode<E>{
        return as.getValue();
     }
     
+    public BinaryNode getLeft(){
+        return left;
+    }
+    
+    public BinaryNode getRight(){
+        return right;
+    }
+    
+    public void setLeft(BinaryNode left){
+        this.left = left;
+    }
+    
+    public void setRight(BinaryNode right){
+        this.right=right;
+    }
+    
     /**
      * Recorrido pre orden RID
      */
-    public void preOrden() {
+    public void preOrder() {
         System.out.print(getEspanol() + " ");
         if (left != null)
-            left.preOrden();
+            left.preOrder();
         if (right != null)
-            right.preOrden();
+            right.preOrder();
     }
     
     /**
      * Recorrido en orden IRD
      */
-    public void enOrden() {
+    public void inOrder() {
         if (this == null)
             return;
         if (left != null)
             if (left.isLeaf())
                 System.out.print(left.getEspanol() + " ");
             else
-                left.enOrden();
+                left.inOrder();
         System.out.print(getEspanol() + " ");
         if (right != null)
             if (right.isLeaf())
                 System.out.print(right.getEspanol() + " ");
             else
-                right.enOrden();
+                right.inOrder();
     }
     
     /**
      * Recorrido post orden IDR
      */
-    public void postOrden() {
+    public void postOrder() {
         if (this == null)
             return;
         if (left != null)
             if (left.isLeaf())
                 System.out.print(left.getEspanol() + " ");
             else
-                left.postOrden();        
+                left.postOrder();        
         if (right != null)
             if (right.isLeaf())
                 System.out.print(right.getEspanol() + " ");
             else
-                right.postOrden();
+                right.postOrder();
         System.out.print(getEspanol() + " ");
     }
 }

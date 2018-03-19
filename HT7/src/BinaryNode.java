@@ -91,6 +91,13 @@ public class BinaryNode<E>{
     public String getEspanol() {
        return value.getValue();
     }
+    /**
+     * Devuelve la palabra en ingles
+     * @return 
+     */
+    public String getEnglish(){
+        return value.getKey();
+    }
     
     public BinaryNode getLeft(){
         return left;
@@ -127,13 +134,13 @@ public class BinaryNode<E>{
             return;
         if (left != null)
             if (left.isLeaf())
-                System.out.print(left.getEspanol() + " ");
+                System.out.print("("+left.getEnglish() + ", "+ left.getEspanol()+")\n");
             else
                 left.inOrder();
-        System.out.print(getEspanol() + " ");
+        System.out.print("("+getEnglish() + ", "+getEspanol()+")\n");
         if (right != null)
             if (right.isLeaf())
-                System.out.print(right.getEspanol() + " ");
+                System.out.print("("+right.getEnglish() + ", "+ right.getEspanol()+")\n");
             else
                 right.inOrder();
     }

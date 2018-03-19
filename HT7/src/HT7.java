@@ -28,7 +28,7 @@ public class HT7 {
         Scanner teclado2 = new Scanner(System.in);
         
         
-            System.out.println("Ingrese el nombre del archivo.txt que quiere leer para su diccionario: ");
+            System.out.println("Ingrese el nombre del archivo.txt que quiere leer para su diccionario (Ej. diccionario.txt): ");
             String file = teclado.nextLine();
             
             BufferedReader br = new BufferedReader(new FileReader(file));     
@@ -57,7 +57,7 @@ public class HT7 {
                     BinaryNode<String> node = new BinaryNode<String>(ingles,espanol); //se crea un nuevo nodo con cada linea
                     tree.addNodo(node); //el nodo se agrega al arbol
                     
-                    System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
+                    //System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
                 }
                 System.out.println("Que desea hacer? \n1. Traducir archivo de texto \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
                 decision = teclado.nextInt();               
@@ -65,7 +65,7 @@ public class HT7 {
                     if(decision == 1){
                         String traduccion = "";
                         String oracion = "";
-                        System.out.println("Ingrese el nombre del archivo a traducir: ");
+                        System.out.println("Ingrese el nombre del archivo a traducir(Ej. oraciones.txt): ");
                         String texto = teclado2.nextLine();
                         File archivo = new File (texto);
 

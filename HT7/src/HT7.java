@@ -2,6 +2,7 @@
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
@@ -58,24 +59,44 @@ public class HT7 {
                     
                     System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
                 }
-                tree.recorrer(BinaryTree2.recorrido.INORDER); //PRUEBA de recorridos
-                System.out.println("Que desea hacer? \n1. Traducir una oracion \n2. Salir ");
+                System.out.println("Que desea hacer? \n1. Traducir una oracion \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
                 decision = teclado.nextInt();               
-                while(decision != 2){
-                    
-                System.out.println("Ingrese la oracion en ingles que quiere traducir: ");
-                String oracion = teclado2.nextLine();
-                oracion = oracion.toUpperCase();
-                System.out.println("\n");
-                
-                String prueba = tree.buscarPalabra(oracion);
-                System.out.println(prueba);
-                //tree.traduccion(oracion); //En este metodo se debe de hacer el reemplazo 
-                                            //de las palabras en ingles por las de espanol.
-                    
-                System.out.println("Que desea hacer? \n1. Traducir otra oracion \n2. Salir ");
+                while(decision != 3){
+                    if(decision == 1){
+                        String traduccion = "";
+                        String oracion = "";
+                        System.out.println("Ingrese el nombre del archivo a traducir: ");
+                        String texto = teclado2.nextLine();
+                        File archivo = new File (texto);
+
+                        FileReader fr = new FileReader (archivo);
+                        BufferedReader br1 = new BufferedReader(fr);
+                        String linea = "";
+                        Scanner scanner = new Scanner(fr);
+                        String palabra = "";
+        
+                        while (scanner.hasNextLine()) {
+                            linea += scanner.nextLine();
+                            palabra = linea.replaceAll("\n", " ");
+                        }
+                        fr.close();
+                        br1.close();
+        
+                        String palabras[] = palabra.split(" ");
+                        for(int i = 0; i < palabras.length;i++){
+                            palabra = palabras[i];
+                            palabra = palabra.toUpperCase();
+                            String prueba = tree.buscarPalabra(palabra);
+                            traduccion = traduccion + prueba;
+                        }
+                        System.out.println(traduccion);
+                    }else if(decision == 2){
+                        tree.recorrer(BinaryTree2.recorrido.INORDER); //PRUEBA de recorridos
+                    }else{
+                        System.out.println("No ha ingresado una opcion valida");
+                    }    
+                System.out.println("Que desea hacer? \n1. Traducir otra oracion \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
                 decision = teclado.nextInt();
-                oracion = "";
                 }
                 
             }

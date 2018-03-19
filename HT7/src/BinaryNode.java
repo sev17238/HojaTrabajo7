@@ -11,7 +11,7 @@
 public class BinaryNode<E>{
     
     //private E valor;
-    Association<String,String> as;
+    Association<String,String> value;
     private BinaryNode<E> parent;
     private BinaryNode<E> left;
     private BinaryNode<E> right;  
@@ -20,7 +20,10 @@ public class BinaryNode<E>{
      * Primer constructor. Únicamente asigna valor
      */
     public BinaryNode(String Ing,String Esp) {
-        as = new Association(Ing,Esp); //valores del nodo asociaados
+        value = new Association(Ing,Esp); //valores del nodo asociaados
+        parent = null;
+        left = null;
+        right = null;
         
     }
     
@@ -32,7 +35,7 @@ public class BinaryNode<E>{
      * @param nd Nodo derecho
      */
     public BinaryNode(String Ing, String Esp, BinaryNode<E> ni, BinaryNode<E> nd) {
-        as = new Association(Ing,Esp); //valores del nodo asociaados
+        value = new Association(Ing,Esp); //valores del nodo asociaados
         if (ni != null) left = ni;
         if (nd != null) right = nd;
     }
@@ -47,7 +50,7 @@ public class BinaryNode<E>{
      * @param EspRight
      */
     public BinaryNode(String Ing, String Esp, String IngLeft,String EspLeft,String IngRight,String EspRight) {
-        as = new Association(Ing,Esp); //valores del nodo asociaados
+        value = new Association(Ing,Esp); //valores del nodo asociaados
         if (IngLeft!= null && EspLeft != null) {
             left = new BinaryNode<>(IngLeft,EspLeft);
         }
@@ -78,7 +81,7 @@ public class BinaryNode<E>{
      * @return 
      */
     public Association getAsociacion() {
-        return as;
+        return value;
     }
     
     /**
@@ -86,7 +89,7 @@ public class BinaryNode<E>{
      * @return 
      */
     public String getEspanol() {
-       return as.getValue();
+       return value.getValue();
     }
     
     public BinaryNode getLeft(){
@@ -153,19 +156,23 @@ public class BinaryNode<E>{
                 right.postOrder();
         System.out.print(getEspanol() + " ");
     }
-    
+    /**
+     * Busca una palabra en ingles dentro del arbol y devuelve su traduccion si la hay
+     * @param value la palabra a buscar
+     * @return La traduccion al español de la palabra si existe en el arbol
+     */
     public String search(String value){
-        if (value.equals(this.as.getKey())){
+        if (value.equals(this.value.getKey())){
             
-            return this.as.theValue;
-        }else if (value.compareTo(this.as.getKey()) < 0) {
+            return this.value.theValue;
+        }else if (value.compareTo(this.value.getKey()) < 0) {
             
             if (left == null){
                 return "*" + value + "*";
             }else{
                 return left.search(value);
             }
-        }else if(value.compareTo(this.as.getKey()) > 0) {
+        }else if(value.compareTo(this.value.getKey()) > 0) {
             
             if (right == null){
                 return "*" + value + "*";

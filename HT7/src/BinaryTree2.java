@@ -48,7 +48,7 @@ public class BinaryTree2<E extends Comparable<E>> {
         }
         else {
             /* 4.- En caso negativo preguntamos: X < Nodo */
-            if ( nodo.getAsociacion().getKey().compareTo(raiz.getAsociacion().getKey()) == -1 ) {
+            if ( nodo.getAsociacion().getKey().compareTo(raiz.getAsociacion().getKey()) < 0 ) {
                 /* 
                  * 5.- En caso de ser menor pasamos al Nodo de la IZQUIERDA del
                  * que acabamos de preguntar y repetimos desde el paso 2 
@@ -86,21 +86,25 @@ public class BinaryTree2<E extends Comparable<E>> {
     public void recorrer(recorrido tipo) {
         switch(tipo) {
             case PREORDER:
-                System.out.println("Recorrido pre orden");
+                System.out.println("Recorrido PREORDER");
                 raiz.preOrder();
                 break;
             case INORDER:
-                System.out.println("Recorrido en orden");
+                System.out.println("Recorrido IN-ORDER");
                 raiz.inOrder();
                 break;
             case POSTORDER:
-                System.out.println("Recorrido post orden");
+                System.out.println("Recorrido POSTORDER");
                 raiz.postOrder();
                 break;
         }
         System.out.println();
     }
-    
+    /**
+     * Verifica que exista una raiz en el arbol para realizar la busqueda
+     * @param palabra la palabra a buscar
+     * @return La traduccion de la palabra si existe en el arbol
+     */
     public String buscarPalabra(String palabra){
         if (raiz == null){
             
@@ -108,13 +112,5 @@ public class BinaryTree2<E extends Comparable<E>> {
         }else{
             return raiz.search(palabra);
         }
-    }
-
-    public String traduccionOracion(String oracion){
-        String oracionTraducida = "";
-        
-        
-        
-        return oracionTraducida;
     }
 }

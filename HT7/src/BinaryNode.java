@@ -153,4 +153,28 @@ public class BinaryNode<E>{
                 right.postOrder();
         System.out.print(getEspanol() + " ");
     }
+    
+    public String search(String value){
+        if (value.equals(this.as.getKey())){
+            
+            return this.as.theValue;
+        }else if (value.compareTo(this.as.getKey()) < 0) {
+            
+            if (left == null){
+                return "*" + value + "*";
+            }else{
+                return left.search(value);
+            }
+        }else if(value.compareTo(this.as.getKey()) > 0) {
+            
+            if (right == null){
+                return "*" + value + "*";
+            }else{
+                return right.search(value);
+
+            }
+        }
+        
+        return "*" + value + "*";
+    }
 }

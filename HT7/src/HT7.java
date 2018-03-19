@@ -24,6 +24,7 @@ public class HT7 {
         BinaryTree2<String> tree = new BinaryTree2<String>(nod);
         
         Scanner teclado = new Scanner(System.in);
+        Scanner teclado2 = new Scanner(System.in);
         
         
             System.out.println("Ingrese el nombre del archivo.txt que quiere leer para su diccionario: ");
@@ -57,19 +58,24 @@ public class HT7 {
                     
                     System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
                 }
-                
-                while(decision != 2){                               
-                System.out.println("Ingrese la oracion en ingles que quiere traducir: ");
-                String oracion = teclado.nextLine();
-                
-                System.out.println("\n");
                 tree.recorrer(BinaryTree2.recorrido.INORDER); //PRUEBA de recorridos
+                System.out.println("Que desea hacer? \n1. Traducir una oracion \n2. Salir ");
+                decision = teclado.nextInt();               
+                while(decision != 2){
+                    
+                System.out.println("Ingrese la oracion en ingles que quiere traducir: ");
+                String oracion = teclado2.nextLine();
+                oracion = oracion.toUpperCase();
+                System.out.println("\n");
                 
+                String prueba = tree.buscarPalabra(oracion);
+                System.out.println(prueba);
                 //tree.traduccion(oracion); //En este metodo se debe de hacer el reemplazo 
                                             //de las palabras en ingles por las de espanol.
                     
-                System.out.println("QUe desea hacer? \n1. Traducir otra oracion \n2. Salir ");
+                System.out.println("Que desea hacer? \n1. Traducir otra oracion \n2. Salir ");
                 decision = teclado.nextInt();
+                oracion = "";
                 }
                 
             }

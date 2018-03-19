@@ -102,12 +102,14 @@ public class BinaryTree2<E extends Comparable<E>> {
     }
     
     public String buscarPalabra(String palabra){
-        String palabraTraducida = "";
-        
-        
-        return palabraTraducida;
+        if (raiz == null){
+            
+            return "*" + palabra + "*";
+        }else{
+            return raiz.search(palabra);
+        }
     }
-    
+
     public String traduccionOracion(String oracion){
         String oracionTraducida = "";
         

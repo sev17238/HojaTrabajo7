@@ -1,7 +1,7 @@
 /*
  * ejemplo con referencia: http://www.juliocesar.in/2013/09/arbol-binario-y-recorridos-preorden.html
  */
-package ht7;
+
 
 /**
  * 

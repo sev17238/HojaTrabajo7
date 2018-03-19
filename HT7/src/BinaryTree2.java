@@ -2,7 +2,7 @@
  * Ver referencia de BinaryNode, 
  * metodo addNodo() sacado de: https://serprogramador.es/programar-arboles-binarios-parte-1-introduccionclasesagregar-nodo/
  */
-package ht7;
+
 
 /**
  *

@@ -1,7 +1,7 @@
 /*
  * ejemplo de DOUGLAS con algunos cambios. Esta en capitulo 12 a partir de pag 284
  */
-package ht7;
+
 
 /**
  *

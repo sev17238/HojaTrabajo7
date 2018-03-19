@@ -59,7 +59,7 @@ public class HT7 {
                     
                     System.out.println(ingles +", "+ espanol); //PRUEBA para ver que los datos se esten leyendo bien                    
                 }
-                System.out.println("Que desea hacer? \n1. Traducir una oracion \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
+                System.out.println("Que desea hacer? \n1. Traducir archivo de texto \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
                 decision = teclado.nextInt();               
                 while(decision != 3){
                     if(decision == 1){
@@ -95,7 +95,7 @@ public class HT7 {
                     }else{
                         System.out.println("No ha ingresado una opcion valida");
                     }    
-                System.out.println("Que desea hacer? \n1. Traducir otra oracion \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
+                System.out.println("Que desea hacer? \n1. Traducir archivo de texto \n2. Mostrar recorrido IN-ORDER del arbol \n3. Salir ");
                 decision = teclado.nextInt();
                 }
                 

@@ -5,7 +5,8 @@
 
 
 /**
- *
+ * Clase que representa a un arbol binario con un nodo binario como atributo el cual crea primero la raiz
+ * del arbol y luego los demas nodos.
  * @author David Soto 17551
  * @author Diego Sevilla 17238
  */
@@ -30,11 +31,18 @@ public class BinaryTree2<E extends Comparable<E>> {
     public BinaryNode<E> getRaiz() {
         return raiz;
     }
-    
+    /**
+     * Metodo que le da un valor al nodo raiz del arbol binario
+     * @param raiz la referencia del nodo raiz
+     */
     public void setRaiz(BinaryNode<E> raiz) {
         this.raiz = raiz;
     }
-    
+    /**
+     * Metodo que agrega un nuevo nodo al arbol en construccion
+     * @param nodo el nodo que se quiere agregar
+     * @param raiz el nodo raiz del arbol
+     */
     private void addNodo( BinaryNode nodo, BinaryNode raiz ) {
         /* 2.- Partiendo de la raíz preguntamos: Nodo == null ( o no existe ) ? */
         if ( raiz == null ) {
@@ -75,6 +83,10 @@ public class BinaryTree2<E extends Comparable<E>> {
             }
         }
     } 
+    /**
+     * Metodo que agrega un nuevo nodo al arbol en construccion
+     * @param nodo el nodo que se quiere agregar
+     */
     public void addNodo( BinaryNode nodo ) {
         this.addNodo( nodo , this.raiz );
     }

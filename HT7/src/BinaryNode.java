@@ -4,7 +4,7 @@
 
 
 /**
- * 
+ * Clase que representa el nodo binario de los cuales se conforma el arbol binario.
  * @author David Soto 17555
  * @author Diego Sevilla 17238
  */
@@ -17,7 +17,9 @@ public class BinaryNode<E>{
     private BinaryNode<E> right;  
     
     /**
-     * Primer constructor. Únicamente asigna valor
+     * Primer constructor. Únicamente asigna el par asociado sin referencias a otros nodos
+     * @param Ing la palabra en ingles
+     * @param Esp la palabra en espanol
      */
     public BinaryNode(String Ing,String Esp) {
         value = new Association(Ing,Esp); //valores del nodo asociaados
@@ -28,9 +30,9 @@ public class BinaryNode<E>{
     }
     
     /**
-     * Segundo constructor
-     * @param Ing
-     * @param Esp
+     * Segundo constructor. asigna el par asociado y el nodo derecho e izquierdo
+     * @param Ing la palabra en ingles
+     * @param Esp la palabra en espanol
      * @param ni Nodo Izquierdo
      * @param nd Nodo derecho
      */
@@ -41,8 +43,8 @@ public class BinaryNode<E>{
     }
     
     /**
-     * Tercer constructor
-     * @param Ing
+     * Tercer constructor, asigna pares asociados al nodo y a sus hijos izquierdo y derecho
+     * @param Ing la palabra en ingles del 
      * @param Esp
      * @param IngLeft
      * @param EspLeft
@@ -62,7 +64,7 @@ public class BinaryNode<E>{
     
      /**
      * Indica si el nodo tiene hijos
-     * @return 
+     * @return true o false 
      */
     public boolean hasChildren() {
         return (left != null && right != null);
@@ -70,7 +72,7 @@ public class BinaryNode<E>{
     
     /**
      * Nodo leaf cuando no tiene hijos
-     * @return 
+     * @return  true o false 
      */
     public boolean isLeaf() {
         return (left == null && right == null);
@@ -78,7 +80,7 @@ public class BinaryNode<E>{
     
     /**
      * Devuelve el valor del nodo
-     * @return 
+     * @return el par asociado del nodo
      */
     public Association getAsociacion() {
         return value;
@@ -93,30 +95,42 @@ public class BinaryNode<E>{
     }
     /**
      * Devuelve la palabra en ingles
-     * @return 
+     * @return la palabra en ingles
      */
     public String getEnglish(){
         return value.getKey();
     }
-    
+    /**
+     * Metodo que devuelve el nodo izquierdo de un nodo padre
+     * @return el nodo derecho
+     */
     public BinaryNode getLeft(){
         return left;
     }
-    
+    /**
+     * Metodo que devuelve el nodo derecho de un nodo padre
+     * @return el nodo derecho
+     */
     public BinaryNode getRight(){
         return right;
     }
-    
+    /**
+     * Metodo que le da valor a el nodo izquierdo de un nodo padre
+     * @param left el nodo izquierdo
+     */
     public void setLeft(BinaryNode left){
         this.left = left;
     }
-    
+    /**
+     * Metodo que le da valor a el nodo derecho de un nodo padre
+     * @param right el nodo derecho
+     */
     public void setRight(BinaryNode right){
         this.right=right;
     }
     
     /**
-     * Recorrido pre orden RID
+     * Recorrido pre orden NLR
      */
     public void preOrder() {
         System.out.print(getEspanol() + " ");
@@ -127,7 +141,7 @@ public class BinaryNode<E>{
     }
     
     /**
-     * Recorrido en orden IRD
+     * Recorrido en orden LNR
      */
     public void inOrder() {
         if (this == null)
@@ -146,7 +160,7 @@ public class BinaryNode<E>{
     }
     
     /**
-     * Recorrido post orden IDR
+     * Recorrido post orden LFN
      */
     public void postOrder() {
         if (this == null)

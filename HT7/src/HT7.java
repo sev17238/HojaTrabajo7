@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * 
+ * Clase principal donde se realizan las acciones y operaciones del trabajo.
  * @author David Soto 17551
  * @author Diego Sevilla 17238
  */

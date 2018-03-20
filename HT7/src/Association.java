@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 import java.util.Map;
 
 /**
- *
+ * CLase Association que representa el par asociado de cada nodo en el arbol binario que simula a un 
+ * diccionario en este trabajo.
  * @author David Soto 17555
  * @author Diego Sevilla 17238
- * @param <K>
- * @param <V>
+ * @param <K> un generico que representa la llave (ingles)
+ * @param <V> un generico que representa el valor (espanol)
  */
 public class Association<K extends Comparable<K>,V extends Comparable<V>> implements Map.Entry<K,V>
 {

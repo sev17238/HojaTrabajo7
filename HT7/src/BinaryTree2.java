@@ -18,15 +18,15 @@ public class BinaryTree2<E extends Comparable<E>> {
     
     /**
      * Constructor por default con nodo raíz
-     * @param r 
+     * @param r nodo binario 
      */
     public BinaryTree2(BinaryNode<E> r) {
         raiz = r;
     }
     
     /**
-     * Devuelve el nodo raíz del árbol
-     * @return 
+     * Devuelve el nodo raiz del arbol
+     * @return Devuelve el nodo raiz del arbol
      */
     public BinaryNode<E> getRaiz() {
         return raiz;
@@ -93,7 +93,7 @@ public class BinaryTree2<E extends Comparable<E>> {
     
     /**
      * Permite recorrer el árbol en el órden indicado
-     * @param tipo 
+     * @param tipo tipo de recorrido a realizar
      */
     public void recorrer(recorrido tipo) {
         switch(tipo) {

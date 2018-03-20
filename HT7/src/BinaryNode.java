@@ -44,12 +44,12 @@ public class BinaryNode<E>{
     
     /**
      * Tercer constructor, asigna pares asociados al nodo y a sus hijos izquierdo y derecho
-     * @param Ing la palabra en ingles del 
-     * @param Esp
-     * @param IngLeft
-     * @param EspLeft
-     * @param IngRight
-     * @param EspRight
+     * @param Ing la palabra en ingles  
+     * @param Esp la palabra en espanol
+     * @param IngLeft la palabra en ingles a la izquierda
+     * @param EspLeft la palabra en espanol a la izquierda
+     * @param IngRight la palabra en ingles a la derecha
+     * @param EspRight la palabra en espanol a la derecha
      */
     public BinaryNode(String Ing, String Esp, String IngLeft,String EspLeft,String IngRight,String EspRight) {
         value = new Association(Ing,Esp); //valores del nodo asociaados
@@ -88,7 +88,7 @@ public class BinaryNode<E>{
     
     /**
      * Devuelve la palabra en espanol
-     * @return 
+     * @return la palabra en espanol
      */
     public String getEspanol() {
        return value.getValue();

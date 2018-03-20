@@ -28,8 +28,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Constructs a pair from a key and value.
      *
-     * @pre key is non-null
-     * @post constructs a key-value pair
      * @param key A non-null object.
      * @param value A (possibly null) object.
      */
@@ -43,8 +41,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Constructs a pair from a key; value is null.
      *
-     * @pre key is non-null
-     * @post constructs a key-value pair; value is null
      * @param key A non-null key value.
      */
     public Association(K key)
@@ -55,8 +51,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Standard comparison function.  Comparison based on keys only.
      *
-     * @pre other is non-null Association
-     * @post returns true iff the keys are equal
      * @param other Another association.
      * @return true iff the keys are equal.
      */
@@ -69,9 +63,7 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Standard hashcode function.
      *
-     * @post return hash code association with this association
      * @return A hash code for association.
-     * @see Hashtable
      */
     public int hashCode()
     {
@@ -81,7 +73,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Fetch value from association.  May return null.
      *
-     * @post returns value from association
      * @return The value field of the association.
      */
     public V getValue()
@@ -92,7 +83,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Fetch key from association.  Should not return null.
      *
-     * @post returns key from association
      * @return Key of the key-value pair.
      */
     public K getKey()
@@ -103,7 +93,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Sets the value of the key-value pair.
      *
-     * @post sets association's value to value
      * @param value The new value.
      */
     public V setValue(V value)
@@ -116,7 +105,6 @@ public class Association<K extends Comparable<K>,V extends Comparable<V>> implem
     /**
      * Standard string representation of an association.
      *
-     * @post returns string representation
      * @return String representing key-value pair.
      */
     public String toString()
